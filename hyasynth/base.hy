@@ -1,0 +1,53 @@
+(import (pyo (Server Sine)))
+
+(setv server (.boot (Server)))
+(server.start)
+(.out (kwapply (Sine) {"mul" 0.01}))
+(.out (kwapply (Sine) {"freq" (* 440 2) "mul" 0.01}))
+(.out (kwapply (Sine) {"freq" (* 440) "mul" 0.01}))
+(.out (kwapply (Sine) {"freq" (/ 440 2) "mul" 0.01}))
+(.out (kwapply (Sine) {"freq" (/ 440 4) "mul" 0.01}))
+(.out (kwapply (Sine) {"freq" (/ 440 8) "mul" 0.01}))
+(server.stop)
+(server.shutdown)
+
+
+(setv server (.boot (Server)))
+(server.start)
+(.out (kwapply (Sine) {"mul" 0.01}))
+(.out (kwapply (Sine) {"freq" (* 440 2) "mul" 0.01}))
+(.out (kwapply (Sine) {"freq" (* 440) "mul" 0.01}))
+(.out (kwapply (Sine) {"freq" (/ 440 2) "mul" 0.01}))
+(.out (kwapply (Sine) {"freq" (/ 440 4) "mul" 0.01}))
+(.out (kwapply (Sine) {"freq" (/ 440 8) "mul" 0.01}))
+(server.stop)
+(server.shutdown)
+
+
+(import (pyo (Adsr Server Sine)))
+(setv server (.boot (Server)))
+(server.start)
+(setv freq (Adsr 1.0 0.2 0.5 0.1 5 0.5))
+(.out (Sine (/ 440 2) 0 freq))
+(freq.play)
+(server.stop)
+(server.shutdown)
+
+
+(import (pyo (CosTable Metro Osc Server Sine SquareTable TrigEnv
+              TrigXnoiseMidi)))
+(setv server (.boot (Server)))
+(server.start)
+(setv wav (SquareTable))
+(setv env (CosTable [(tuple [0 0])
+                     (tuple [100 1])
+                     (tuple [500 0.3])
+                     (tuple [8191 0])]))
+(setv met (Metro 0.125 12))
+(setv amp (kwapply (TrigEnv met) {"table" env "mul" 0.1}))
+(setv pit (kwapply
+            (TrigXnoiseMidi met)
+            {"dist" 12 "x1" 20 "scale" 1 "mrange" (tuple [48 84])}))
+(setv out (.out (kwapply (Osc) {"table" wav "freq" pit "mul" amp})))
+(server.stop)
+(server.shutdown)
