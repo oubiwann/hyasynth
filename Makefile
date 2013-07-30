@@ -1,21 +1,23 @@
 VENV=.venv
 ACT=./$(VENV)/bin/activate
+REQS=requirements.txt
+SUB_REQS=sub_requirements.txt
 
 $(VENV):
 	virtualenv $(VENV) \
-	--python=`which python2.7` \
 	--system-site-packages
 
 deps: $(VENV)
-	@. $(ACT) && pip install -r requirements.txt
+	@. $(ACT) && pip install -r $(REQS)
+	@. $(ACT) && pip install -r $(SUB_REQS)
+
+shell: deps
+	@. $(ACT) && hy
 
 clean-venv:
 	rm -rf $(VENV)
 
 clean:
 	@echo
-
-shell: deps
-	@. $(ACT) && hy
 
 clean-all: clean clean-venv
