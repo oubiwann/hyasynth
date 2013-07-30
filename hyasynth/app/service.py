@@ -25,7 +25,7 @@ class Options(usage.Options):
     """
     optParameters = [
         [const.sc.portLongOption, const.sc.portShortOption, const.sc.port,
-         ("The game file for the game you wish to run in PeloidMUD.")]
+         ("The SuperCollider port number.")]
         ]
     subCommands = [
         [sshConst.KEYGEN, None, SubCommandOptions,

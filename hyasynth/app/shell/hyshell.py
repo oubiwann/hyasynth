@@ -1,10 +1,17 @@
+import ast
 import os
 from pprint import pprint
 import sys
 
+from hy.compiler import hy_compile
+from hy.importer import ast_compile
+from hy.lex.machine import Machine
+from hy.lex.states import Idle, LexException
+from hy.macros import process
+
 from zope.interface import implements
 
-from twisted.conch.manhole import ManholeInterpreter
+from twisted.conch.manhole import FileWrapper, ManholeInterpreter
 
 from carapace.app.shell import base
 from carapace.sdk import exceptions, interfaces, registry
@@ -16,6 +23,9 @@ config = registry.getConfig()
 BANNER_HELP = ("Type 'ls()' or 'dir()' to see the objects in the "
                "current namespace.\n: Use help(...) to get API docs "
                "for available objects.")
+
+
+_hymachine = Machine(Idle, 1, 0)
 
 
 class CommandAPI(object):
@@ -149,6 +159,38 @@ class HyInterpreter(ManholeInterpreter):
         #server = session.users.get(avatar).get("chainedProtocol")
         #server.write("hey there!")
         self.handler.namespace.update(namespace)
+
+    def runsource(self, source, filename='<input>', symbol='single'):
+        global _hymachine
+
+        try:
+            _hymachine.process(source + "\n")
+        except LexException:
+            _hymachine = Machine(Idle, 1, 0)
+            self.showsyntaxerror(filename)
+            return False
+
+        if type(_hymachine.state) != Idle:
+            _hymachine = Machine(Idle, 1, 0)
+            return True
+
+        try:
+            tokens = process(_hymachine.nodes, "__console__")
+        except Exception:
+            _hymachine = Machine(Idle, 1, 0)
+            self.showtraceback()
+            return False
+
+        _hymachine = Machine(Idle, 1, 0)
+        try:
+            _ast = hy_compile(tokens, "__console__", root=ast.Interactive)
+            code = ast_compile(_ast, filename, symbol)
+        except Exception:
+            self.showtraceback()
+            return False
+
+        self.runcode(code)
+        return False
 
 
 class HyManhole(base.MOTDColoredManhole):
