@@ -11,8 +11,23 @@ deps: $(VENV)
 	@. $(ACT) && pip install -r $(REQS)
 	@. $(ACT) && pip install -r $(SUB_REQS)
 
-shell: deps
+hy-shell: deps
 	@. $(ACT) && hy
+
+keys: deps
+	@. $(ACT) && twistd hyasynth keygen
+
+start:
+	@. $(ACT) && twistd hyasynth
+
+start-dev: deps
+	@. $(ACT) && twistd -n hyasynth
+
+stop:
+	@. $(ACT) && twistd hyasynth stop
+
+shell: deps
+	@. $(ACT) && twistd hyasynth shell
 
 clean-venv:
 	rm -rf $(VENV)
