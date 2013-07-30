@@ -27,7 +27,10 @@ stop:
 	@. $(ACT) && twistd hyasynth stop
 
 shell: deps
+	make start &
+	@sleep 3
 	@. $(ACT) && twistd hyasynth shell
+	make stop
 
 clean-venv:
 	rm -rf $(VENV)
