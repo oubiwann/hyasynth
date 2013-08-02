@@ -12,6 +12,12 @@ from hyasynth import meta
 moduleProvides(interfaces.IConfig)
 
 
+# SuperCollider settings
+sc = Config()
+sc.host = "127.0.0.1"
+sc.port = 57110
+
+
 # Main
 main.config.datadir = os.path.expanduser("~/.%s" % meta.library_name)
 main.config.localfile = "config.ini"
@@ -44,27 +50,34 @@ ssh.banner = """:
 class HyasynthConfigurator(Configurator):
     """
     """
-    def __init__(self, main, db, ssh, telnet):
-        super(PeloidMUDConfigurator, self).__init__(main, ssh)
-        self.db = db
-        self.telnet = telnet
+    def __init__(self, main, ssh, sc, receiver):
+        super(HyasynthConfigurator, self).__init__(main, ssh)
+        self.sc = sc
+        self.receiver = receiver
 
     def buildDefaults(self):
-        config = super(PeloidMUDConfigurator, self).buildDefaults()
+        config = super(HyasynthConfigurator, self).buildDefaults()
         config.set("SSH", "welcome", self.ssh.welcome)
+        config.add_section("SuperCollider")
+        config.set("SuperCollider", "host", self.sc.host)
+        config.set("SuperCollider", "port", self.sc.port)
         return config
 
     def updateConfig(self):
-        config = super(PeloidMUDConfigurator, self).updateConfig()
+        config = super(HyasynthConfigurator, self).updateConfig()
         if not config:
             return
         ssh = self.ssh
+        sc = self.sc
+        receiver = self.receiver
         ssh.welcome = config.get("SSH", "welcome")
+        sc.host = config.get("SuperCollider", "host")
+        sc.port = config.get("SuperCollider", "port")
         return config
 
 
 def configuratorFactory():
-    return HyasynthConfigurator(main, db, ssh, telnet)
+    return HyasynthConfigurator(main, ssh, sc, receiver)
 
 
 def updateConfig():
