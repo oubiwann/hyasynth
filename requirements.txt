@@ -3,3 +3,5 @@ zope.interface==4.0.5
 Twisted==13.1.0
 carapace
 hy==0.9.10
+# XXX the following is for dev mode only
+-e file:///Users/oubiwann/lab/hy/txosc
