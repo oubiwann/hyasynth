@@ -1,7 +1,16 @@
 import ast
-import os
 from pprint import pprint
+import os
 import sys
+
+from zope.interface import implements
+
+from twisted.internet import defer
+from twisted.conch.manhole import FileWrapper, ManholeInterpreter
+from twisted.python import log
+
+from carapace.app.shell import base
+from carapace.sdk import exceptions, interfaces, registry
 
 from hy.compiler import hy_compile
 from hy.importer import ast_compile
@@ -9,25 +18,39 @@ from hy.lex.machine import Machine
 from hy.lex.states import Idle, LexException
 from hy.macros import process
 
-from zope.interface import implements
-
-from twisted.conch.manhole import FileWrapper, ManholeInterpreter
-
-from carapace.app.shell import base
-from carapace.sdk import exceptions, interfaces, registry
+from hyasynth.app.sc import client
 
 
 config = registry.getConfig()
 
 
-BANNER_HELP = ("Type 'ls()' or 'dir()' to see the objects in the "
-               "current namespace.\n: Use help(...) to get API docs "
+BANNER_HELP = ("Type '(ls)' or '(dir)' to see the objects in the "
+               "current namespace.\n: Use (help ...) to get API docs "
                "for available objects.")
 
 
 _hymachine = Machine(Idle, 1, 0)
 
 
+def raiseCallException(data):
+    """
+    """
+    msg = "%s: '%s'" % (data.get("error"), data.get("command"))
+    raise data.get("exception")(msg)
+
+
+def checkCallResult(result):
+    """
+    """
+    if isinstance(result, dict) and result.haskey("error"):
+        return raiseCallException(result)
+    else:
+        return result
+
+
+# XXX add a decorator that can be used by methods in this class to say
+# whether a given method is to be used in the shell as a command; will probably
+# update a dict/list on the class that holds all command methods.
 class CommandAPI(object):
 
     def __init__(self):
@@ -128,6 +151,9 @@ class HyInterpreter(ManholeInterpreter):
             "os": os,
             "sys": sys,
             "pprint": pprint,
+            # XXX create a "generateNamespaceData" method on commandAPI that
+            # does all of this, returning a dict that can just be .update'd
+            # here.
             "app": self.handler.commandAPI.getAppData,
             "banner": self.handler.commandAPI.banner,
             "info": self.handler.commandAPI.banner,
@@ -135,29 +161,10 @@ class HyInterpreter(ManholeInterpreter):
             "clear": self.handler.commandAPI.clear,
             "quit": self.handler.commandAPI.quit,
             "exit": self.handler.commandAPI.quit,
+            "send": client.send,
             })
         if "config" not in namespace.keys():
             namespace["config"] = config
-        # XXX maybe put this stuff in AdminCommandAPI(CommandAPI)?
-        #
-        # XXX however, in order to use this appropriately, we'd need to know
-        # the avatarId when the interpreter is created, and be able to check if
-        # that avatarId has the admin role...
-        #
-        # if admin role:
-        #tcpServer = vars(services).get("services")[0]
-        #tcpServer = vars(namespace.get("services").get("services")[0]
-        #conchFactory = vars(tcpServer)["args"][1]
-        #portal = conchFactory.portal
-        #realm = portal.realm
-        #users = realm.userComponents.keys()
-        #from twisted.conch import interfaces
-        #userReg = realm.userComponents.get(users[0])
-        #avatar = userReg.getComponent(interfaces.IConchUser)
-        #session = userReg.getComponent(interfaces.ISession)
-        #transport = session.users.get(avatar).get("transport")
-        #server = session.users.get(avatar).get("chainedProtocol")
-        #server.write("hey there!")
         self.handler.namespace.update(namespace)
 
     def runsource(self, source, filename='<input>', symbol='single'):
@@ -191,6 +198,30 @@ class HyInterpreter(ManholeInterpreter):
 
         self.runcode(code)
         return False
+
+    def displayhook(self, obj):
+        self.locals['_'] = obj
+        log.msg("debug: type = %s" % type(obj))
+        if isinstance(obj, defer.Deferred):
+            if hasattr(obj, "result"):
+                result = obj.result
+                self.write(str(obj.result))
+                return checkCallResult(result)
+            else:
+                d = self._pendingDeferreds
+                k = self.numDeferreds
+                d[id(obj)] = (k, obj)
+                self.numDeferreds += 1
+                obj.addCallbacks(self._cbDisplayDeferred, self._ebDisplayDeferred,
+                                 callbackArgs=(k, obj), errbackArgs=(k, obj))
+        elif obj is not None:
+            checkCallResult(result)
+            self.write(repr(obj))
+
+    def _cbDisplayDeferred(self, result, k, obj):
+        self.write("%s\n" % result, True)
+        del self._pendingDeferreds[id(obj)]
+        return checkCallResult(result)
 
 
 class HyManhole(base.MOTDColoredManhole):
