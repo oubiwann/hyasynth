@@ -7,7 +7,7 @@ from txosc import dispatch
 from txosc import async
 
 from hyasynth import config
-from hyasynth.app.sc import server as scserver
+from hyasynth.app.sc import receiver
 
 def handleError(reason):
     log.err(reason)
@@ -16,7 +16,7 @@ def handleError(reason):
 def makeClient(host, port, callback, arg):
     log.msg("Preparing to create client ...")
     endpoint = TCP4ClientEndpoint(reactor, host, port)
-    client = async.ClientFactory(scserver.receiverAPI)
+    client = async.ClientFactory(receiver.receiverAPI)
     d = endpoint.connect(client)
     d.addErrback(handleError)
     d.addCallback(callback, client, arg)
@@ -34,13 +34,10 @@ def handleProtocol(protocol, client, message):
     return d
 
 
-@defer.inlineCallbacks
 def send(message):
-    result = yield makeClient(
+    d = makeClient(
         config.sc.host,
         config.sc.port,
         handleProtocol,
         message)
-    log.msg("Result: %s" % result)
-    log.msg("Called make client ...")
-    defer.returnValue(result)
+    return d
