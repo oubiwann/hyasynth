@@ -9,12 +9,12 @@ from txosc import async
 from hyasynth import config
 from hyasynth.app.sc import receiver
 
+
 def handleError(reason):
     log.err(reason)
 
 
 def makeClient(host, port, callback, arg):
-    log.msg("Preparing to create client ...")
     endpoint = TCP4ClientEndpoint(reactor, host, port)
     client = async.ClientFactory(receiver.receiverAPI)
     d = endpoint.connect(client)
@@ -24,20 +24,13 @@ def makeClient(host, port, callback, arg):
     return d
 
 
-def handleProtocol(protocol, client, message):
-    log.msg("Got protocol: %s" % str(protocol))
-    log.msg("Sending message '%s' ..." % message)
-    d = client.send(osc.Message(message))
-    log.msg("Send deferred: %s" % d)
-    d.addErrback(handleError)
-    client.deferredResult = d
-    return d
-
-
 def send(message):
-    d = makeClient(
-        config.sc.host,
-        config.sc.port,
-        handleProtocol,
-        message)
-    return d
+    """
+    """
+    def handleProtocol(protocol, client, message):
+        d = client.send(osc.Message(message))
+        d.addErrback(handleError)
+        client.deferredResult = d
+        return d
+
+    return makeClient(config.sc.host, config.sc.port, handleProtocol, message)
