@@ -1,7 +1,6 @@
 VENV=.venv
 ACT=./$(VENV)/bin/activate
 REQS=requirements.txt
-SUB_REQS=sub_requirements.txt
 
 $(VENV):
 	virtualenv $(VENV) \
@@ -9,7 +8,6 @@ $(VENV):
 
 deps: $(VENV)
 	@. $(ACT) && pip install -r $(REQS)
-	@. $(ACT) && pip install -r $(SUB_REQS)
 
 hy-shell: deps
 	@. $(ACT) && hy
