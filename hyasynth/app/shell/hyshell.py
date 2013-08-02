@@ -162,6 +162,8 @@ class HyInterpreter(ManholeInterpreter):
             "quit": self.handler.commandAPI.quit,
             "exit": self.handler.commandAPI.quit,
             "send": client.send,
+            "status": client.status,
+            "server_status": client.server_status,
             })
         if "config" not in namespace.keys():
             namespace["config"] = config

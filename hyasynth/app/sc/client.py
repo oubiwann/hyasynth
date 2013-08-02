@@ -34,3 +34,9 @@ def send(message):
         return d
 
     return makeClient(config.sc.host, config.sc.port, handleProtocol, message)
+
+
+def status():
+    return send("/status")
+
+server_status = status
