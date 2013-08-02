@@ -6,6 +6,7 @@ from twisted.python import usage
 from carapace.sdk import const as sshConst, interfaces, registry, scripts
 
 from hyasynth import config, const, meta
+from hyasynth.app.sc import server as scserver
 from hyasynth.app.shell.service import getHyShellFactory
 
 
@@ -27,6 +28,7 @@ class Options(usage.Options):
         [const.sc.portLongOption, const.sc.portShortOption, const.sc.port,
          ("The SuperCollider port number.")]
         ]
+
     subCommands = [
         [sshConst.KEYGEN, None, SubCommandOptions,
          "Generate ssh keys for the server"],
@@ -55,11 +57,14 @@ def makeService(options):
     # primary setup
     application = service.Application(meta.description)
     services = service.IServiceCollection(application)
-    # setup ssh for the game server
+    # setup ssh for the SuperCollider
     sshFactory = getHyShellFactory(app=application, services=services)
     sshServer = internet.TCPServer(config.ssh.port, sshFactory)
     sshServer.setName(config.ssh.servicename)
     sshServer.setServiceParent(services)
     # setup server for SC communications
-    # XXX
+    #scFactory = scserver.SuperColliderTCPFactory(scserver.receiverAPI)
+    #scServer = internet.TCPServer(config.receiver.port, scFactory)
+    #scServer.setName(config.receiver.servicename)
+    #scServer.setServiceParent(services)
     return services
