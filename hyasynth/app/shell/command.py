@@ -1,7 +1,15 @@
+from hyasynth.app.sc import client
+
+
 # XXX add a decorator that can be used by methods in this class to say
 # whether a given method is to be used in the shell as a command; will probably
 # update a dict/list on the class that holds all command methods.
 class BaseAPI(object):
+    """
+    """
+
+
+class ShellAPI(BaseAPI):
     """
     """
     def __init__(self):
@@ -32,10 +40,6 @@ class BaseAPI(object):
     def getAppData(self):
         return pprint(self.appData)
 
-
-class ShellAPI(BaseAPI):
-    """
-    """
     def ls(self):
         """
         List the objects in the current namespace, in alphabetical order.
@@ -72,6 +76,19 @@ class ShellAPI(BaseAPI):
         self.terminal.loseConnection()
 
 
-class CommandAPI(ShellAPI):
+class OSCAPI(BaseAPI):
+    """
+    """
+    def send(self, *args, **kwargs):
+        return client.send(*args, **kwargs)
+
+    def status(self, *args, **kwargs):
+        return client.status(*args, **kwargs)
+
+    def server_status(self, *args, **kwargs):
+        return client.server_status(*args, **kwargs)
+
+
+class CommandAPI(ShellAPI, OSCAPI):
     """
     """

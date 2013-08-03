@@ -18,7 +18,6 @@ from hy.lex.machine import Machine
 from hy.lex.states import Idle, LexException
 from hy.macros import process
 
-from hyasynth.app.sc import client
 from hyasynth.app.shell import command
 
 
@@ -91,9 +90,9 @@ class HyInterpreter(ManholeInterpreter):
             "clear": self.handler.commandAPI.clear,
             "quit": self.handler.commandAPI.quit,
             "exit": self.handler.commandAPI.quit,
-            "send": client.send,
-            "status": client.status,
-            "server_status": client.server_status,
+            "send": self.handler.commandAPI.send,
+            "status": self.handler.commandAPI.status,
+            "server_status": self.handler.commandAPI.server_status,
             })
         if "config" not in namespace.keys():
             namespace["config"] = config
@@ -147,7 +146,7 @@ class HyInterpreter(ManholeInterpreter):
                 obj.addCallbacks(self._cbDisplayDeferred, self._ebDisplayDeferred,
                                  callbackArgs=(k, obj), errbackArgs=(k, obj))
         elif obj is not None:
-            checkCallResult(result)
+            checkCallResult(obj)
             self.write(repr(obj))
 
     def _cbDisplayDeferred(self, result, k, obj):
