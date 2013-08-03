@@ -19,6 +19,7 @@ from hy.lex.states import Idle, LexException
 from hy.macros import process
 
 from hyasynth.app.sc import client
+from hyasynth.app.shell import command
 
 
 config = registry.getConfig()
@@ -48,75 +49,6 @@ def checkCallResult(result):
         return result
 
 
-# XXX add a decorator that can be used by methods in this class to say
-# whether a given method is to be used in the shell as a command; will probably
-# update a dict/list on the class that holds all command methods.
-class CommandAPI(object):
-
-    def __init__(self):
-        self.namespace = None
-        self.terminal = None
-        self.appData = None
-        self.appOrig = None
-
-    def setNamespace(self, namespace):
-        self.namespace = namespace
-
-    def setTerminal(self, terminal):
-        self.terminal = terminal
-
-    def setAppData(self):
-        if not self.namespace:
-            return
-        if not self.appData:
-            self.appData = {
-                "servicecollection": self.appOrig._adapterCache.get(
-                    "twisted.application.service.IServiceCollection"),
-                "multiservice": self.appOrig._adapterCache.get(
-                    "twisted.application.service.IService"),
-                "process": self.appOrig._adapterCache.get(
-                    "twisted.application.service.IProcess"),
-                }
-
-    def getAppData(self):
-        return pprint(self.appData)
-
-    def ls(self):
-        """
-        List the objects in the current namespace, in alphabetical order.
-        """
-        width = max([len(x) for x in self.namespace.keys()])
-        for key, value in sorted(self.namespace.items()):
-            if key == "_":
-                continue
-            info = ""
-            if (isinstance(value, dict) or
-                isinstance(value, list) or key == "services"):
-                info = "data"
-            elif type(value).__name__ == "module":
-                info = value.__name__
-            elif type(value).__name__ == "function":
-                info = "%s.%s" % (value.__module__, value.__name__)
-            elif type(value).__name__ == "instance":
-                info = "%s.%s" % (value.__module__, value.__class__.__name__)
-            else:
-                info = "%s.%s.%s" % (
-                    value.im_class.__module__, value.im_class.__name__, key)
-            print "\t%s - %s" % (key.ljust(width), info)
-
-    def banner(self):
-        """
-        Display the login banner and associated help or info.
-        """
-        print base.renderBanner(help=BANNER_HELP)
-
-    def clear(self):
-        self.terminal.reset()
-
-    def quit(self):
-        self.terminal.loseConnection()
-
-
 class HySessionTransport(base.TerminalSessionTransport):
 
     def getHelpHint(self):
@@ -142,8 +74,6 @@ class HyInterpreter(ManholeInterpreter):
     """
     implements(interfaces.ITerminalWriter)
 
-    # XXX namespace code needs to be better organized:
-    #   * should the CommandAPI be in this module?
     def updateNamespace(self, namespace={}):
         if not self.handler.commandAPI.appOrig:
             self.handler.commandAPI.appOrig = self.handler.namespace.get("app")
@@ -251,7 +181,7 @@ class HyTerminalRealm(base.ExecutingTerminalRealm):
     def __init__(self, namespace, apiClass=None):
         base.ExecutingTerminalRealm.__init__(self, namespace)
         if not apiClass:
-            apiClass = CommandAPI
+            apiClass = command.CommandAPI
 
         def getManhole(serverProtocol):
             return self.manholeFactory(apiClass(), namespace)
