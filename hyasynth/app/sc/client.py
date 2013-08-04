@@ -39,4 +39,9 @@ def send(message):
 def status():
     return send("/status")
 
+
 server_status = status
+
+
+def kill_server():
+    return send("/quit")

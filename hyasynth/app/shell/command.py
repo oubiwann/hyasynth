@@ -99,7 +99,7 @@ class ShellAPI(BaseAPI):
                     value.__module__, value.__class__.__name__, key)
             else:
                 info = "<Unknown>"
-            print "\t%s - %s" % (key.ljust(width), info)
+            print "\t%s - %s" % (key.replace("_", "-").ljust(width), info)
 
     @commands.add
     def banner(self):
@@ -124,7 +124,7 @@ class ShellAPI(BaseAPI):
         self.terminal.loseConnection()
 
 
-class OSCAPI(BaseAPI):
+class SuperColliderAPI(BaseAPI):
     """
     """
     @commands.add
@@ -139,7 +139,11 @@ class OSCAPI(BaseAPI):
     def server_status(self, *args, **kwargs):
         return client.server_status(*args, **kwargs)
 
+    @commands.add
+    def kill_server(self, *args, **kwargs):
+        return client.kill_server(*args, **kwargs)
 
-class CommandAPI(ShellAPI, OSCAPI):
+
+class CommandAPI(ShellAPI, SuperColliderAPI):
     """
     """

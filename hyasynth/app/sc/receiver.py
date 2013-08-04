@@ -25,6 +25,16 @@ def handleStatus(message, client):
     client.deferredResult.callback(result)
 
 
+def handleDone(message, client):
+    """
+    """
+    result = message.getValues()
+    if result == ['/quit']:
+        result = {"shutdown": "done"}
+    log.msg("handleDone: %s" % result)
+    client.deferredResult.callback(result)
+
+
 def handleFail(message, client):
     """
     """
@@ -39,4 +49,5 @@ def handleFail(message, client):
 
 receiverAPI = dispatch.Receiver()
 receiverAPI.addCallback("/status.reply", handleStatus)
+receiverAPI.addCallback("/done", handleDone)
 receiverAPI.addCallback("/fail", handleFail)
