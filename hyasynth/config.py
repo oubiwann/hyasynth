@@ -31,7 +31,6 @@ ssh.port = 19322
 ssh.keydir = os.path.join(main.config.datadir, "ssh")
 ssh.userdirtemplate = os.path.join(main.config.datadir, "users", "{{USER}}")
 ssh.userauthkeys = os.path.join(ssh.userdirtemplate, "authorized_keys")
-ssh.welcome = "Hello, {{NAME}}! You have logged onto a Hysynth Server."
 ssh.banner = """:
 : Welcome to
 :  _  _                       _   _
@@ -39,13 +38,18 @@ ssh.banner = """:
 : | __ | || / _` (_-< || | ' \  _| ' \\
 : |_||_|\_, \__,_/__/\_, |_||_\__|_||_|
 :       |__/         |__/
+:
 : {{WELCOME}}
 : {{HELP}}
 :
 : Enjoy!
 :
 """
-
+ssh.welcome = """
+: Hello, {{NAME}}! You have logged onto a Hysynth Server."""
+ssh.banner_help = """
+: Type '(ls)' or '(dir)' to see the objects in the current namespace.
+: Use (help ...) to get API docs for available objects."""
 
 class HyasynthConfigurator(Configurator):
     """
@@ -58,6 +62,7 @@ class HyasynthConfigurator(Configurator):
     def buildDefaults(self):
         config = super(HyasynthConfigurator, self).buildDefaults()
         config.set("SSH", "welcome", self.ssh.welcome)
+        config.set("SSH", "banner_help", self.ssh.banner_help)
         config.add_section("SuperCollider")
         config.set("SuperCollider", "host", self.sc.host)
         config.set("SuperCollider", "port", self.sc.port)
@@ -71,6 +76,7 @@ class HyasynthConfigurator(Configurator):
         sc = self.sc
         receiver = self.receiver
         ssh.welcome = config.get("SSH", "welcome")
+        ssh.banner_help = config.get("SSH", "banner_help")
         sc.host = config.get("SuperCollider", "host")
         sc.port = config.get("SuperCollider", "port")
         return config
