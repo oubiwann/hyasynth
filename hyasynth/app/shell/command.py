@@ -1,8 +1,10 @@
+from twisted.python import log
+
 from carapace.app import registry
 from carapace.app.shell import base
 from carapace.sdk import registry
 
-from hyasynth.app.sc import client
+from hyasynth.app.sc import client, process
 
 
 config = registry.getConfig()
@@ -137,7 +139,7 @@ class SuperColliderAPI(BaseAPI):
 
     @commands.add
     def server_status(self):
-        return client.send("/status")
+        return self.status()
 
     @commands.add
     def kill_server(self):
@@ -150,6 +152,11 @@ class SuperColliderAPI(BaseAPI):
     @commands.add
     def connect_internal_server(self):
         return client.connect(mode="internal")
+
+    @commands.add
+    def boot_internal_server(self):
+        self.connect_internal_server()
+        return process.boot(mode="internal")
 
 
 class CommandAPI(ShellAPI, SuperColliderAPI):
