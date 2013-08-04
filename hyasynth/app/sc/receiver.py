@@ -21,7 +21,7 @@ def handleStatus(message, client):
     """
     """
     result = parseStatus(*message.getValues())
-    log.msg("handleStatus: %s" % result)
+    log.msg("Result in handleStatus: %s" % result)
     client.deferredResult.callback(result)
 
 
@@ -31,7 +31,7 @@ def handleDone(message, client):
     result = message.getValues()
     if result == ['/quit']:
         result = {"shutdown": "done"}
-    log.msg("handleDone: %s" % result)
+    log.msg("Result in handleDone: %s" % result)
     client.deferredResult.callback(result)
 
 
