@@ -24,11 +24,6 @@ from hyasynth.app.shell import command
 config = registry.getConfig()
 
 
-BANNER_HELP = ("Type '(ls)' or '(dir)' to see the objects in the "
-               "current namespace.\n: Use (help ...) to get API docs "
-               "for available objects.")
-
-
 _hymachine = Machine(Idle, 1, 0)
 
 
@@ -42,7 +37,7 @@ def raiseCallException(data):
 def checkCallResult(result):
     """
     """
-    if isinstance(result, dict) and result.haskey("error"):
+    if isinstance(result, dict) and result.has_key("error"):
         return raiseCallException(result)
     else:
         return result
@@ -51,7 +46,7 @@ def checkCallResult(result):
 class HySessionTransport(base.TerminalSessionTransport):
 
     def getHelpHint(self):
-        return BANNER_HELP
+        return config.ssh.banner_help
 
 
 class HyTerminalSession(base.ExecutingTerminalSession):
@@ -76,24 +71,15 @@ class HyInterpreter(ManholeInterpreter):
     def updateNamespace(self, namespace={}):
         if not self.handler.commandAPI.appOrig:
             self.handler.commandAPI.appOrig = self.handler.namespace.get("app")
+        # set some useful modules in the namespace
         namespace.update({
             "os": os,
             "sys": sys,
-            "pprint": pprint,
-            # XXX create a "generateNamespaceData" method on commandAPI that
-            # does all of this, returning a dict that can just be .update'd
-            # here.
-            "app": self.handler.commandAPI.getAppData,
-            "banner": self.handler.commandAPI.banner,
-            "info": self.handler.commandAPI.banner,
-            "ls": self.handler.commandAPI.ls,
-            "clear": self.handler.commandAPI.clear,
-            "quit": self.handler.commandAPI.quit,
-            "exit": self.handler.commandAPI.quit,
-            "send": self.handler.commandAPI.send,
-            "status": self.handler.commandAPI.status,
-            "server_status": self.handler.commandAPI.server_status,
-            })
+            "api": self.handler.commandAPI,
+            "pprint": pprint})
+        # set the defined commands in the namespace
+        for name in self.handler.commandAPI.getCommands():
+            namespace[name] = getattr(self.handler.commandAPI, name)
         if "config" not in namespace.keys():
             namespace["config"] = config
         self.handler.namespace.update(namespace)
@@ -158,6 +144,8 @@ class HyInterpreter(ManholeInterpreter):
 class HyManhole(base.MOTDColoredManhole):
     """
     """
+    ps = (":> ", ".. ")
+
     def setInterpreter(self):
         self.interpreter = HyInterpreter(self, locals=self.namespace)
         registry.registerComponent(
