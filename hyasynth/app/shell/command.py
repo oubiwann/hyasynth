@@ -132,18 +132,27 @@ class SuperColliderAPI(BaseAPI):
         return client.send(*args, **kwargs)
 
     @commands.add
-    def status(self, *args, **kwargs):
-        return client.status(*args, **kwargs)
+    def status(self):
+        return client.send("/status")
 
     @commands.add
-    def server_status(self, *args, **kwargs):
-        return client.server_status(*args, **kwargs)
+    def server_status(self):
+        return client.send("/status")
 
     @commands.add
-    def kill_server(self, *args, **kwargs):
-        return client.kill_server(*args, **kwargs)
+    def kill_server(self):
+        return client.send("/quit")
+
+    @commands.add
+    def connect_external_server(self):
+        return client.connect(mode="external")
+
+    @commands.add
+    def connect_internal_server(self):
+        return client.connect(mode="internal")
 
 
 class CommandAPI(ShellAPI, SuperColliderAPI):
     """
+    Gather all of the command APIs together.
     """
