@@ -7,14 +7,15 @@ from hyasynth import exceptions
 
 
 def parseStatus(_, ugens, synths, groups, loaded, avg, peak, nominal, actual):
-  return {"unit generators": ugens,
-          "synths": synths,
-          "groups": groups,
-          "loaded synths": loaded,
-          "average cpu": avg,
-          "peak cpu": peak,
-          "nominal sample rate": nominal,
-          "actual sample rate": actual}
+    data = {"unit generators": ugens,
+            "synths": synths,
+            "groups": groups,
+            "loaded synths": loaded,
+            "average cpu": avg,
+            "peak cpu": peak,
+            "nominal sample rate": nominal,
+            "actual sample rate": actual}
+    return {"status": data}
 
 
 def handleStatus(message, client):
