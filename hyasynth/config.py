@@ -19,7 +19,10 @@ scext.port = 57110
 
 # SuperCollider internal settings
 scint = Config()
+# XXX add the following to the configuration setup below
 scint.binary = "/usr/local/bin/scsynth"
+# XXX add the following to the configuration setup below
+scint.defaultboot = False
 scint.host = "127.0.0.1"
 scint.port = 57111
 
