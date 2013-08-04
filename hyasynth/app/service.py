@@ -62,9 +62,4 @@ def makeService(options):
     sshServer = internet.TCPServer(config.ssh.port, sshFactory)
     sshServer.setName(config.ssh.servicename)
     sshServer.setServiceParent(services)
-    # setup server for SC communications
-    #scFactory = scserver.SuperColliderTCPFactory(scserver.receiverAPI)
-    #scServer = internet.TCPServer(config.receiver.port, scFactory)
-    #scServer.setName(config.receiver.servicename)
-    #scServer.setServiceParent(services)
     return services
