@@ -72,7 +72,7 @@ class ShellAPI(BaseAPI):
 
     @commands.add
     def app(self):
-        return self.getAppData()
+        return self.appData
 
     @commands.add
     def ls(self):
