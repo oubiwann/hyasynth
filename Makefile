@@ -15,10 +15,10 @@ hy-shell: deps
 keys: deps
 	@. $(ACT) && twistd hyasynth keygen
 
-start:
+start: clean
 	@. $(ACT) && twistd hyasynth
 
-start-dev: deps
+start-dev: deps clean
 	@. $(ACT) && twistd -n hyasynth
 
 stop:
@@ -34,6 +34,6 @@ clean-venv:
 	rm -rf $(VENV)
 
 clean:
-	@echo
+	@find . -name "*.pyc" -exec rm {} \;
 
 clean-all: clean clean-venv
