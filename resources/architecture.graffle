@@ -14,7 +14,7 @@
 	<key>BackgroundGraphic</key>
 	<dict>
 		<key>Bounds</key>
-		<string>{{0, 0}, {756, 553}}</string>
+		<string>{{0, 0}, {756, 552.99997329711914}}</string>
 		<key>Class</key>
 		<string>SolidGraphic</string>
 		<key>ID</key>
@@ -63,8 +63,8 @@
 			<integer>48</integer>
 			<key>Points</key>
 			<array>
-				<string>{334.49147574504002, 155.56726072144616}</string>
-				<string>{349.29538303022071, 155.22807172650874}</string>
+				<string>{468.87066497057901, 201.51239463715496}</string>
+				<string>{483.6745722557597, 201.1732056422176}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -96,8 +96,8 @@
 			<integer>47</integer>
 			<key>Points</key>
 			<array>
-				<string>{349.29538303022071, 137.75383059331114}</string>
-				<string>{327.33735270028421, 138.2264582286042}</string>
+				<string>{483.6745722557597, 183.69896450901999}</string>
+				<string>{461.71654192582321, 184.171592144313}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -121,7 +121,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{26.485723591384797, 262.98152274282842}, {104.98327706371312, 136.99486443436916}}</string>
+			<string>{{160.86491281692372, 308.92665665853741}, {104.98327706371312, 136.99486443436916}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -165,14 +165,17 @@
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\f0\b\fs20 \cf0 System Sound}</string>
+\f0\b\fs20 \cf0 System Sound\
+\
+\
+TBD}</string>
 			</dict>
 			<key>TextPlacement</key>
 			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{236.16244353147314, 97.661414433954121}, {91.174909168811098, 121.18069458007812}}</string>
+			<string>{{370.54163275701211, 143.60654834966292}, {91.174909168811098, 121.18069458007812}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -216,7 +219,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{349.29538303022071, 110.7244040186041}, {91.174909168811098, 108.11770629882812}}</string>
+			<string>{{483.67457225575976, 156.66953793431293}, {91.174909168811098, 108.11770629882812}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -272,7 +275,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{342.13312644024302, 75.267718764241749}, {104.98327706371312, 149.19429016113281}}</string>
+			<string>{{476.51231566578207, 121.21285267995054}, {104.98327706371312, 149.19429016113281}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -334,10 +337,10 @@
 			<integer>35</integer>
 			<key>Points</key>
 			<array>
-				<string>{250.96577208091634, 333.21854349747872}</string>
-				<string>{177.72440440402437, 332.79526934294682}</string>
-				<string>{178.34645163644109, 155.51180810418077}</string>
-				<string>{229.00826446150577, 155.57199755020065}</string>
+				<string>{385.34496130645533, 379.16367741318771}</string>
+				<string>{312.10359362956336, 378.74040325865582}</string>
+				<string>{312.72564086198014, 201.45694201988962}</string>
+				<string>{363.3874536870448, 201.51713146590944}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -371,8 +374,8 @@
 			<integer>32</integer>
 			<key>Points</key>
 			<array>
-				<string>{229.84130070788217, 136.15034360017538}</string>
-				<string>{126.16856606008099, 136.22834389926231}</string>
+				<string>{364.22048993342116, 182.09547751588417}</string>
+				<string>{260.54775528561993, 182.17347781497114}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -408,8 +411,8 @@
 			<integer>31</integer>
 			<key>Points</key>
 			<array>
-				<string>{126.16856606008099, 118.81102139159408}</string>
-				<string>{236.16244353147314, 119.18385752271274}</string>
+				<string>{260.54775528561993, 164.75615530730289}</string>
+				<string>{370.54163275701205, 165.12899143842151}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -433,7 +436,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{229.25826427817987, 75.267726228642914}, {104.98327706371312, 149.19429016113281}}</string>
+			<string>{{363.63745350371886, 121.21286014435171}, {104.98327706371312, 149.19429016113281}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -491,7 +494,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{251.21576790240152, 292.05998967333039}, {174.6356750991072, 83.329246056138103}}</string>
+			<string>{{385.59495712794052, 338.00512358903939}, {174.6356750991072, 83.329246056138103}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -542,7 +545,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{243.66763530891751, 272.18896405141032}, {189.72628568251943, 108.11770629882812}}</string>
+			<string>{{378.04682453445656, 318.13409796711932}, {189.72628568251943, 108.11770629882812}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -593,7 +596,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{236.11950271543375, 253.17321690948472}, {204.35078948359802, 132.05088806152344}}</string>
+			<string>{{370.49869194097272, 299.11835082519372}, {204.35078948359802, 132.05088806152344}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -644,7 +647,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{228.57137012194977, 231.35884828409965}, {218.54500898592383, 159.00544615312305}}</string>
+			<string>{{362.95055934748876, 277.30398219980862}, {218.54500898592383, 159.00544615312305}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -704,7 +707,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{221.66334198054614, 55.669850778975444}, {232.36108273414905, 339.7298583984375}}</string>
+			<string>{{356.04253120608513, 101.61498469468424}, {232.36108273414905, 339.7298583984375}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -755,7 +758,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{214.6222872548021, 33.824847388191557}, {246.13362186523062, 366.15151977539057}}</string>
+			<string>{{349.00147648034107, 79.769981303900352}, {246.13362186523062, 366.15151977539057}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -806,7 +809,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{31.580453727845224, 92.68504080615719}, {94.588112332235767, 77.240203857421875}}</string>
+			<string>{{165.95964295338416, 138.63017472186598}, {94.588112332235767, 77.240203857421875}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -862,7 +865,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{31.580453727845224, 60.338581544422134}, {94.588112332235767, 26.478458982968604}}</string>
+			<string>{{165.95964295338416, 106.28371546013094}, {94.588112332235767, 26.478458982968604}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -915,7 +918,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{26.485718782791984, 37.513196052118303}, {104.98327706371312, 136.99486443436916}}</string>
+			<string>{{160.86490800833093, 83.458329967827098}, {104.98327706371312, 136.99486443436916}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -1015,7 +1018,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-08-06 00:10:53 +0000</string>
+	<string>2013-08-17 20:06:05 +0000</string>
 	<key>Modifier</key>
 	<string>Duncan McGreggor</string>
 	<key>NotesVisible</key>
@@ -1051,22 +1054,12 @@
 		<key>NSPaperSize</key>
 		<array>
 			<string>size</string>
-			<string>{792, 612}</string>
+			<string>{792, 611.99997329711914}</string>
 		</array>
 		<key>NSPrintReverseOrientation</key>
 		<array>
 			<string>int</string>
 			<string>0</string>
-		</array>
-		<key>NSPrinter</key>
-		<array>
-			<string>coded</string>
-			<string>BAtzdHJlYW10eXBlZIHoA4QBQISEhAlOU1ByaW50ZXIAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKxNEZXNramV0IDY5ODAgc2VyaWVzhoY=</string>
-		</array>
-		<key>NSPrinterName</key>
-		<array>
-			<string>string</string>
-			<string>Deskjet 6980 series</string>
 		</array>
 		<key>NSRightMargin</key>
 		<array>
