@@ -1,7 +1,7 @@
-wsgiref==0.1.2
-zope.interface==4.0.5
-Twisted==13.1.0
+zope.interface
+Twisted
 carapace
-hy==0.9.10
-# XXX the following is for dev mode only
--e file:///Users/oubiwann/lab/hy/txosc
+hy
+https://github.com/oubiwann/txosc/archive/dev.zip
+https://github.com/oubiwann/carapace/archive/master.zip
+https://github.com/oubiwann/hydeyhole/archive/master.zip
