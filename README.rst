@@ -1,31 +1,43 @@
-==========
-star-music
-==========
+========
+Hyasynth
+========
 
-
-Set Up
-------
-
-All instructions below as well as examples, tutorials, etc., assume that you
-are running star-music in a Python virtua environment. For example:
-
-.. code:: bash
-
-    $ virtualenv .venv --python=`which python2.7`
-    $ . .venv/bin/activate
-    (.venv) $
+.. image:: resources/logos/hyasynth-logo-medium.jpg
 
 
 Dependencies
 ------------
 
-star-music requires the pyo project to be installed. It is easiest to do this
-via the binary packages available here:
+Hyasynth requires `SuperCollider`_ to be installed (and for now, running). You
+can download the appropriate binary for your system at the
+`SuperCollider downloads page`_:
 
-http://code.google.com/p/pyo/downloads/list
-
-For the rest of the dependencies, simply execute the following:
+The rest of the dependencies will be automatically installed by the ``make``
+targets. The ``make`` target that installs the deps can, of course, be called
+directly:
 
 .. code:: bash
 
-    (.venv) $ pip install -r requirements.txt
+    $ make deps
+
+
+Getting Started
+---------------
+
+To get Hyasynth up and running quickly, simply do this:
+
+.. code:: bash
+
+  $ make start
+
+You will be greeted with a banner like the following:
+
+.. code:: text
+
+
+
+
+.. Links
+.. -----
+.. _SuperCollider: http://supercollider.sourceforge.net/
+.. _SuperColler downloads page: http://supercollider.sourceforge.net/downloads/
