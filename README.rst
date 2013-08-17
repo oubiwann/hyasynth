@@ -35,8 +35,6 @@ You will be greeted with a banner like the following:
 .. code:: text
 
 
-
-
 .. Links
 .. -----
 .. _SuperCollider: http://supercollider.sourceforge.net/
