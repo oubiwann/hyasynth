@@ -4,7 +4,7 @@ from twisted.conch import manhole_ssh
 from carapace.app import cred
 from carapace.util import ssh as util
 
-from hydeyhole.app.shell import hyshell
+from hyasynth.app.shell import hyshell
 
 from hyasynth import const
 
@@ -25,7 +25,7 @@ def getHyShellFactory(**namespace):
 
     These two are passed in the call to hyasynth.app.service.makeService.
     """
-    sshRealm = hyshell.HyTerminalRealm(namespace)
+    sshRealm = hyshell.HyasynthTerminalRealm(namespace)
     sshPortal = portal.Portal(sshRealm)
     factory = manhole_ssh.ConchFactory(sshPortal)
     factory.privateKeys = {'ssh-rsa': util.getPrivKey()}
