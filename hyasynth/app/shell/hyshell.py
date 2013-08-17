@@ -27,6 +27,12 @@ config = registry.getConfig()
 _hymachine = Machine(Idle, 1, 0)
 
 
+def renderBanner(help="", welcome=""):
+    return config.ssh.banner.replace(
+        "{{WELCOME}}", welcome).replace(
+        "{{HELP}}", help)
+
+
 def raiseCallException(data):
     """
     """
@@ -44,9 +50,21 @@ def checkCallResult(result):
 
 
 class HySessionTransport(base.TerminalSessionTransport):
+    """
+    """
+    def writeMOTD(self):
+        termProto = self.chainedProtocol.terminalProtocol
+        banner = renderBanner(
+            help=self.getHelpHint(),
+            welcome=self.getWelcomeMessage())
+        termProto.terminal.write("\r\n" + banner + "\r\n")
+        termProto.terminal.write(termProto.ps[termProto.pn])
 
     def getHelpHint(self):
         return config.ssh.banner_help
+
+    def getWelcomeMessage(self):
+        return config.ssh.banner_welcome
 
 
 class HyTerminalSession(base.ExecutingTerminalSession):
