@@ -2,7 +2,7 @@
 Hyasynth
 ========
 
-.. image:: resources/logos/hyasynth-logo-medium.jpg
+.. image:: resources/logos/hyasynth-logo-192.png
 
 
 Dependencies
