@@ -1,10 +1,12 @@
-from ConfigParser import SafeConfigParser, NoSectionError, NoOptionError
+from ConfigParser import NoSectionError, NoOptionError
 import os
 
 from zope.interface import moduleProvides
 
-from carapace.config import Config, Configurator, main, ssh
+from carapace.config import Config
 from carapace.sdk import interfaces
+
+from hydeyhole.config import HydeyHoleConfigurator, main, ssh
 
 from hyasynth import meta
 
@@ -70,7 +72,7 @@ ssh.banner_welcome = """
 :"""
 
 
-class HyasynthConfigurator(Configurator):
+class HyasynthConfigurator(HydeyHoleConfigurator):
     """
     """
     def __init__(self, main, ssh, scint, scext):
