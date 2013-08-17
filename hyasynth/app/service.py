@@ -1,11 +1,13 @@
 import sys
 
 from twisted.application import service, internet
+from twisted.internet import protocol
 from twisted.python import usage
 
 from carapace.sdk import const as sshConst, interfaces, registry, scripts
 
 from hyasynth import config, const, meta
+from hyasynth.app.sc import process
 from hyasynth.app.shell.service import getHyShellFactory
 
 
@@ -52,7 +54,7 @@ class Options(usage.Options):
 
 def makeSSHService(options, application, services):
     """
-    setup ssh for the SuperCollider
+    Setup ssh for the SuperCollider.
     """
     sshFactory = getHyShellFactory(app=application, services=services)
     sshServer = internet.TCPServer(config.ssh.port, sshFactory)
@@ -62,10 +64,9 @@ def makeSSHService(options, application, services):
 
 
 def makeService(options):
-    # options
-    #someVar = options.get(const.someConst)
-    # primary setup
     application = service.Application(meta.description)
     services = service.IServiceCollection(application)
     makeSSHService(options, application, services)
+    # XXX if run-internal server is true, run process.makeSCSynthService ...
+    #process.boot(mode="internal", options=options, services=services)
     return services
