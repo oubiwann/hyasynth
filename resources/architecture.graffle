@@ -14,7 +14,11 @@
 	<key>BackgroundGraphic</key>
 	<dict>
 		<key>Bounds</key>
+<<<<<<< HEAD:architecture.graffle
 		<string>{{0, 0}, {576, 733}}</string>
+=======
+		<string>{{0, 0}, {756, 552.99997329711914}}</string>
+>>>>>>> f578a03... Updated architecture diagram.:resources/architecture.graffle
 		<key>Class</key>
 		<string>SolidGraphic</string>
 		<key>ID</key>
@@ -63,10 +67,15 @@
 			<integer>32</integer>
 			<key>Points</key>
 			<array>
+<<<<<<< HEAD:architecture.graffle
 				<string>{462.25743098950318, 551.57602898548066}</string>
 				<string>{461.77092313338636, 656.77717872361472}</string>
 				<string>{148.28303765187044, 657.35028271901058}</string>
 				<string>{148.00568205810157, 169.03498643946287}</string>
+=======
+				<string>{468.87066497057901, 201.51239463715496}</string>
+				<string>{483.6745722557597, 201.1732056422176}</string>
+>>>>>>> f578a03... Updated architecture diagram.:resources/architecture.graffle
 			</array>
 			<key>Style</key>
 			<dict>
@@ -98,8 +107,13 @@
 			<integer>31</integer>
 			<key>Points</key>
 			<array>
+<<<<<<< HEAD:architecture.graffle
 				<string>{173.98965333784594, 148.87002623449806}</string>
 				<string>{273.70764778517798, 149.42117572654084}</string>
+=======
+				<string>{483.6745722557597, 183.69896450901999}</string>
+				<string>{461.71654192582321, 184.171592144313}</string>
+>>>>>>> f578a03... Updated architecture diagram.:resources/architecture.graffle
 			</array>
 			<key>Style</key>
 			<dict>
@@ -116,12 +130,174 @@
 			<key>Tail</key>
 			<dict>
 				<key>ID</key>
+<<<<<<< HEAD:architecture.graffle
 				<integer>7</integer>
+=======
+				<integer>41</integer>
+				<key>Info</key>
+				<integer>1</integer>
 			</dict>
 		</dict>
 		<dict>
 			<key>Bounds</key>
+			<string>{{160.86491281692372, 308.92665665853741}, {104.98327706371312, 136.99486443436916}}</string>
+			<key>Class</key>
+			<string>ShapedGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>Helvetica-Bold</string>
+				<key>Size</key>
+				<real>11</real>
+			</dict>
+			<key>ID</key>
+			<integer>44</integer>
+			<key>Shape</key>
+			<string>Rectangle</string>
+			<key>Style</key>
+			<dict>
+				<key>fill</key>
+				<dict>
+					<key>Color</key>
+					<dict>
+						<key>b</key>
+						<string>0.2</string>
+						<key>g</key>
+						<string>0.8</string>
+						<key>r</key>
+						<string>1</string>
+					</dict>
+				</dict>
+				<key>stroke</key>
+				<dict>
+					<key>CornerRadius</key>
+					<real>9</real>
+					<key>Width</key>
+					<real>0.5</real>
+				</dict>
+			</dict>
+			<key>Text</key>
+			<dict>
+				<key>Text</key>
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
+
+\f0\b\fs20 \cf0 System Sound\
+\
+\
+TBD}</string>
+			</dict>
+			<key>TextPlacement</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>Bounds</key>
+			<string>{{370.54163275701211, 143.60654834966292}, {91.174909168811098, 121.18069458007812}}</string>
+			<key>Class</key>
+			<string>ShapedGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>Helvetica</string>
+				<key>Size</key>
+				<real>11</real>
+			</dict>
+			<key>ID</key>
+			<integer>43</integer>
+			<key>Magnets</key>
+			<array>
+				<string>{-0.50000000000000044, -0.32239379660812051}</string>
+				<string>{0.5, -0.16525159857171756}</string>
+			</array>
+			<key>Shape</key>
+			<string>Rectangle</string>
+			<key>Style</key>
+			<dict>
+				<key>stroke</key>
+				<dict>
+					<key>CornerRadius</key>
+					<real>9</real>
+					<key>Width</key>
+					<real>0.5</real>
+				</dict>
+			</dict>
+			<key>Text</key>
+			<dict>
+				<key>Text</key>
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
+
+\f0\fs20 \cf0 Receiver}</string>
+			</dict>
+			<key>TextPlacement</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>Bounds</key>
+			<string>{{483.67457225575976, 156.66953793431293}, {91.174909168811098, 108.11770629882812}}</string>
+			<key>Class</key>
+			<string>ShapedGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>Helvetica</string>
+				<key>Size</key>
+				<real>11</real>
+			</dict>
+			<key>ID</key>
+			<integer>41</integer>
+			<key>Magnets</key>
+			<array>
+				<string>{-0.50000000000000089, -0.25000000000000022}</string>
+				<string>{-0.50000000000000089, -0.088377618880479236}</string>
+			</array>
+			<key>Shape</key>
+			<string>Rectangle</string>
+			<key>Style</key>
+			<dict>
+				<key>fill</key>
+				<dict>
+					<key>Color</key>
+					<dict>
+						<key>b</key>
+						<string>0.4</string>
+						<key>g</key>
+						<string>0.6</string>
+						<key>r</key>
+						<string>1</string>
+					</dict>
+				</dict>
+				<key>stroke</key>
+				<dict>
+					<key>CornerRadius</key>
+					<real>9</real>
+					<key>Width</key>
+					<real>0.5</real>
+				</dict>
+			</dict>
+			<key>Text</key>
+			<dict>
+				<key>Text</key>
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
+
+\f0\fs20 \cf0 scsynth}</string>
+>>>>>>> f578a03... Updated architecture diagram.:resources/architecture.graffle
+			</dict>
+		</dict>
+		<dict>
+			<key>Bounds</key>
+<<<<<<< HEAD:architecture.graffle
 			<string>{{273.95764399768439, 75.649723813897594}, {265.49404907226562, 149.00704956054688}}</string>
+=======
+			<string>{{476.51231566578207, 121.21285267995054}, {104.98327706371312, 149.19429016113281}}</string>
+>>>>>>> f578a03... Updated architecture diagram.:resources/architecture.graffle
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -171,8 +347,122 @@
 			<integer>0</integer>
 		</dict>
 		<dict>
+<<<<<<< HEAD:architecture.graffle
 			<key>Bounds</key>
 			<string>{{411.48866869420186, 304.31821916697936}, {102.68213653564453, 247.0078125}}</string>
+=======
+			<key>Class</key>
+			<string>LineGraphic</string>
+			<key>Head</key>
+			<dict>
+				<key>ID</key>
+				<integer>18</integer>
+			</dict>
+			<key>ID</key>
+			<integer>35</integer>
+			<key>Points</key>
+			<array>
+				<string>{385.34496130645533, 379.16367741318771}</string>
+				<string>{312.10359362956336, 378.74040325865582}</string>
+				<string>{312.72564086198014, 201.45694201988962}</string>
+				<string>{363.3874536870448, 201.51713146590944}</string>
+			</array>
+			<key>Style</key>
+			<dict>
+				<key>stroke</key>
+				<dict>
+					<key>HeadArrow</key>
+					<string>FilledArrow</string>
+					<key>Legacy</key>
+					<true/>
+					<key>TailArrow</key>
+					<string>0</string>
+				</dict>
+			</dict>
+			<key>Tail</key>
+			<dict>
+				<key>ID</key>
+				<integer>16</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>Class</key>
+			<string>LineGraphic</string>
+			<key>Head</key>
+			<dict>
+				<key>ID</key>
+				<integer>7</integer>
+				<key>Info</key>
+				<integer>2</integer>
+			</dict>
+			<key>ID</key>
+			<integer>32</integer>
+			<key>Points</key>
+			<array>
+				<string>{364.22048993342116, 182.09547751588417}</string>
+				<string>{260.54775528561993, 182.17347781497114}</string>
+			</array>
+			<key>Style</key>
+			<dict>
+				<key>stroke</key>
+				<dict>
+					<key>HeadArrow</key>
+					<string>FilledArrow</string>
+					<key>Legacy</key>
+					<true/>
+					<key>TailArrow</key>
+					<string>0</string>
+				</dict>
+			</dict>
+			<key>Tail</key>
+			<dict>
+				<key>ID</key>
+				<integer>18</integer>
+				<key>Info</key>
+				<integer>1</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>Class</key>
+			<string>LineGraphic</string>
+			<key>Head</key>
+			<dict>
+				<key>ID</key>
+				<integer>43</integer>
+				<key>Info</key>
+				<integer>1</integer>
+			</dict>
+			<key>ID</key>
+			<integer>31</integer>
+			<key>Points</key>
+			<array>
+				<string>{260.54775528561993, 164.75615530730289}</string>
+				<string>{370.54163275701205, 165.12899143842151}</string>
+			</array>
+			<key>Style</key>
+			<dict>
+				<key>stroke</key>
+				<dict>
+					<key>HeadArrow</key>
+					<string>FilledArrow</string>
+					<key>Legacy</key>
+					<true/>
+					<key>TailArrow</key>
+					<string>0</string>
+				</dict>
+			</dict>
+			<key>Tail</key>
+			<dict>
+				<key>ID</key>
+				<integer>7</integer>
+				<key>Info</key>
+				<integer>1</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>Bounds</key>
+			<string>{{363.63745350371886, 121.21286014435171}, {104.98327706371312, 149.19429016113281}}</string>
+>>>>>>> f578a03... Updated architecture diagram.:resources/architecture.graffle
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -223,7 +513,11 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
+<<<<<<< HEAD:architecture.graffle
 			<string>{{300.63217924222567, 304.31821916697891}, {102.68213653564453, 247.0078125}}</string>
+=======
+			<string>{{385.59495712794052, 338.00512358903939}, {174.6356750991072, 83.329246056138103}}</string>
+>>>>>>> f578a03... Updated architecture diagram.:resources/architecture.graffle
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -274,7 +568,11 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
+<<<<<<< HEAD:architecture.graffle
 			<string>{{291.46251531589246, 281.96715875627024}, {230.48432922363281, 276.80923461914062}}</string>
+=======
+			<string>{{378.04682453445656, 318.13409796711932}, {189.72628568251943, 108.11770629882812}}</string>
+>>>>>>> f578a03... Updated architecture diagram.:resources/architecture.graffle
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -325,7 +623,11 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
+<<<<<<< HEAD:architecture.graffle
 			<string>{{282.29285138955925, 258.46988862876469}, {248.25054931640625, 307.75686645507812}}</string>
+=======
+			<string>{{370.49869194097272, 299.11835082519372}, {204.35078948359802, 132.05088806152344}}</string>
+>>>>>>> f578a03... Updated architecture diagram.:resources/architecture.graffle
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -376,7 +678,11 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
+<<<<<<< HEAD:architecture.graffle
 			<string>{{273.12318746322603, 233.8264393020404}, {265.49404907226562, 340.18817138671875}}</string>
+=======
+			<string>{{362.95055934748876, 277.30398219980862}, {218.54500898592383, 159.00544615312305}}</string>
+>>>>>>> f578a03... Updated architecture diagram.:resources/architecture.graffle
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -436,7 +742,11 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
+<<<<<<< HEAD:architecture.graffle
 			<string>{{264.73113874577166, 54.470200083593227}, {282.27816772460938, 527.17352294921875}}</string>
+=======
+			<string>{{356.04253120608513, 101.61498469468424}, {232.36108273414905, 339.7298583984375}}</string>
+>>>>>>> f578a03... Updated architecture diagram.:resources/architecture.graffle
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -487,7 +797,11 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
+<<<<<<< HEAD:architecture.graffle
 			<string>{{256.17748594193358, 33.824847388191529}, {299.0093994140625, 554.7529296875}}</string>
+=======
+			<string>{{349.00147648034107, 79.769981303900352}, {246.13362186523062, 366.15151977539057}}</string>
+>>>>>>> f578a03... Updated architecture diagram.:resources/architecture.graffle
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -538,7 +852,11 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
+<<<<<<< HEAD:architecture.graffle
 			<string>{{122.24863696124424, 128.6677074237808}, {51.491020202636719, 40.117279052734375}}</string>
+=======
+			<string>{{165.95964295338416, 138.63017472186598}, {94.588112332235767, 77.240203857421875}}</string>
+>>>>>>> f578a03... Updated architecture diagram.:resources/architecture.graffle
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -589,7 +907,11 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
+<<<<<<< HEAD:architecture.graffle
 			<string>{{58.341677490724308, 128.66770483477248}, {51.491020202636719, 40.117279052734375}}</string>
+=======
+			<string>{{165.95964295338416, 106.28371546013094}, {94.588112332235767, 26.478458982968604}}</string>
+>>>>>>> f578a03... Updated architecture diagram.:resources/architecture.graffle
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -642,7 +964,11 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
+<<<<<<< HEAD:architecture.graffle
 			<string>{{52.152463581020015, 101.15871101728106}, {127.53636169433594, 71.63800048828125}}</string>
+=======
+			<string>{{160.86490800833093, 83.458329967827098}, {104.98327706371312, 136.99486443436916}}</string>
+>>>>>>> f578a03... Updated architecture diagram.:resources/architecture.graffle
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -739,7 +1065,11 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
+<<<<<<< HEAD:architecture.graffle
 	<string>2013-07-29 18:28:16 +0000</string>
+=======
+	<string>2013-08-17 20:06:05 +0000</string>
+>>>>>>> f578a03... Updated architecture diagram.:resources/architecture.graffle
 	<key>Modifier</key>
 	<string>Duncan McGreggor</string>
 	<key>NotesVisible</key>
@@ -770,7 +1100,11 @@
 		<key>NSPaperSize</key>
 		<array>
 			<string>size</string>
+<<<<<<< HEAD:architecture.graffle
 			<string>{612, 792}</string>
+=======
+			<string>{792, 611.99997329711914}</string>
+>>>>>>> f578a03... Updated architecture diagram.:resources/architecture.graffle
 		</array>
 		<key>NSPrintReverseOrientation</key>
 		<array>
