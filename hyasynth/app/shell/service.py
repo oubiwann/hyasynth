@@ -4,8 +4,9 @@ from twisted.conch import manhole_ssh
 from carapace.app import cred
 from carapace.util import ssh as util
 
+from hydeyhole.app.shell import hyshell
+
 from hyasynth import const
-from hyasynth.app.shell import hyshell
 
 
 def portalFactory(namespace):
