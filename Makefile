@@ -3,11 +3,12 @@ ACT=./$(VENV)/bin/activate
 REQS=requirements.txt
 
 $(VENV):
-	virtualenv $(VENV) \
-	--system-site-packages
+	virtualenv $(VENV)
 
 deps: $(VENV)
-	@. $(ACT) && pip install -r $(REQS)
+	@for LINE in $(shell cat $(REQS)); do \
+		. $(ACT) && pip install $$LINE ; \
+	done
 
 hy-shell: deps
 	@. $(ACT) && hy
