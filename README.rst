@@ -163,7 +163,7 @@ The current API calls that are implemented:
 .. code:: text
 
   Hy Shell
-
+  --------
    * app
    * banner
    * clear
@@ -172,14 +172,21 @@ The current API calls that are implemented:
    * ls
    * quit
 
-  SuperCollider
-
+  SuperCollider Server
+  --------------------
    * boot-internal-server
    * connect-external-server
    * connect-internal-server
    * kill-server
    * send
    * status / server-status
+
+  Miscellany and Helpers
+  ----------------------
+   * config
+   * os
+   * pprint
+   * sys
 
 
 Architecture
