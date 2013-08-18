@@ -57,8 +57,7 @@ ssh.banner = """: Welcome to
 : | __ | || / _` (_-< || | ' \  _| ' \\
 : |_||_|\_, \__,_/__/\_, |_||_\__|_||_|
 :       |__/         |__/
-: {{WELCOME}}
-: {{HELP}}
+: {{WELCOME}}{{HELP}}
 :
 : Enjoy!
 :"""
@@ -68,8 +67,7 @@ ssh.banner_welcome = """
 : learn more about here:
 :   https://github.com/hylang/hy
 : Information on Hyasynth is available here:
-:   http://github.com/oubiwann/hyasynth
-:"""
+:   http://github.com/oubiwann/hyasynth"""
 
 
 class HyasynthConfigurator(HydeyHoleConfigurator):
