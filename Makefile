@@ -25,11 +25,13 @@ start-dev: deps clean
 stop:
 	@. $(ACT) && twistd hyasynth stop
 
-shell: deps
+shell-nodeps:
 	make start &
 	@sleep 3
 	@. $(ACT) && twistd hyasynth shell
 	make stop
+
+shell: deps shell-nodeps
 
 clean-venv:
 	rm -rf $(VENV)
