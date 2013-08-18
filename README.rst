@@ -74,7 +74,38 @@ this:
 
   :> (status)
   {'status': 'connection refused'}
-  
+
+
+About Results in the REPL
+-------------------------
+
+Hyasynth is built on top of Twisted (this is how you can SSH into it!) and the
+client communications with the SuperCollider server all happen via Twisted.
+This also means that the results are often what are called "deferreds" (see the
+Twisted docs on deferreds for more information).
+
+Hyasynth works hard to hide this from the user, but if you want to manipulate
+returned data, you need to know about it :-) Most of the times, you'll just
+need to know how to get a hold of the returned data. For that, you just need
+to access the ``result`` attributed of the returned deferred.
+
+For instance, if you wanted to pretty-print the results of the ``(status)``
+call, you'd do this:
+
+.. code:: lisp
+
+  :> (setv s (status))
+  :> (pprint s.result)
+  {'status': {'actual sample rate': 0.0,
+              'average cpu': 0.022847207263112068,
+              'groups': 1,
+              'loaded synths': 0,
+              'nominal sample rate': 7.17291259765625,
+              'peak cpu': 0.0575711727142334,
+              'synths': 0,
+              'unit generators': 0}}
+  :>
+
 .. Links
 .. -----
 .. _SuperCollider: http://supercollider.sourceforge.net/
