@@ -1,6 +1,6 @@
 from hydeyhole.sdk import command
 
-from hyasynth.app.sc import client, commands
+from hyasynth.app.sc import client, commands, process
 
 
 class SCServerAPI(command.BaseAPI):

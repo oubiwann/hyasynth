@@ -3,7 +3,6 @@ from twisted.python import log
 from carapace.app.shell import base
 from carapace.sdk import registry
 
-
 from hydeyhole.app.shell import hyshell
 
 from hyasynth.app.shell import command

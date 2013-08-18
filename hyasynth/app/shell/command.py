@@ -4,12 +4,7 @@ from carapace.sdk import registry
 
 from hydeyhole.sdk import command
 
-from hyasynth.app.sc import (
-    buffer, bus, client, group, node, process, server, synth, ugen)
-
-
-config = registry.getConfig()
-commands = command.CommandRegistry()
+from hyasynth.app.sc import buffer, bus, group, node, server, synth, ugen
 
 
 class CommandAPI(command.ShellAPI, server.SCServerAPI, synth.SCSynthDefsAPI,
