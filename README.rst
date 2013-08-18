@@ -1,8 +1,12 @@
-========
+########
 Hyasynth
-========
+########
 
 .. image:: resources/logos/hyasynth-logo-192.png
+
+
+Quick Start
+===========
 
 
 Dependencies
@@ -10,7 +14,7 @@ Dependencies
 
 Hyasynth requires `SuperCollider`_ to be installed (and for now, running). You
 can download the appropriate binary for your system at the
-`SuperCollider downloads page`_:
+`SuperCollider downloads page`_.
 
 The rest of the dependencies will be automatically installed by the ``make``
 targets. The ``make`` target that installs the deps can, of course, be called
@@ -21,8 +25,8 @@ directly:
     $ make deps
 
 
-Getting Started
----------------
+Running Hyasynth
+----------------
 
 To get Hyasynth up and running quickly, simply do this:
 
@@ -79,10 +83,10 @@ this:
 About Results in the REPL
 -------------------------
 
-Hyasynth is built on top of Twisted (this is how you can SSH into it!) and the
-client communications with the SuperCollider server all happen via Twisted.
+Hyasynth is built on top of `Twisted`_ (this is how you can SSH into it!) and
+the client communications with the SuperCollider server all happen via Twisted.
 This also means that the results are often what are called "deferreds" (see the
-Twisted docs on deferreds for more information).
+Twisted `docs on deferreds`_ for more information).
 
 Hyasynth works hard to hide this from the user, but if you want to manipulate
 returned data, you need to know about it :-) Most of the times, you'll just
@@ -106,7 +110,40 @@ call, you'd do this:
               'unit generators': 0}}
   :>
 
+
+About ``twistd``
+----------------
+
+Behind the scenes, Hyasynth is an SSH server running Hy (Python Lisp; see
+`HydeyHole`_). If you look at the ``Makefile``, you'll see that we're calling
+an executable called ``twistd``. This is the Twisted command-line utility for
+running servers, etc. Hyasynth provides a Twisted plugin that runs all the
+necessary services. If you'd like to interact with this plugin directly, you
+can do so on the command line:
+
+.. code:: shell
+
+  $ . .venv/bin/activate
+  (.venv) $ twistd hyasynth --help
+  Usage: twistd [options] hyasynth [options]
+  Options:
+    -s, --super-collider-port=  The SuperCollider port number. [default: 57110]
+        --version               Display Twisted version and exit.
+        --help                  Display this help and exit.
+  Commands:
+      keygen      Generate ssh keys for the server
+      shell       Login to the server
+      stop        Stop the server
+
+As Hyasynth gets more features, we will update the Twisted plugin to offer more
+command-line configuration options, and you will see those when you run the 
+plugin with the ``--help`` flag.
+
+
 .. Links
 .. -----
 .. _SuperCollider: http://supercollider.sourceforge.net/
 .. _SuperColler downloads page: http://supercollider.sourceforge.net/downloads/
+.. _Twisted: http://twistedmatrix.com/
+.. _docs on deferreds: http://twistedmatrix.com/documents/current/core/howto/defer.html
+.. _HydeyHole: https://github.com/oubiwann/hydeyhole
