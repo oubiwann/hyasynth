@@ -112,8 +112,8 @@ Twisted `docs on deferreds`_ for more information).
 
 Hyasynth works hard to hide this from the user, but if you want to manipulate
 returned data, you need to know about it :-) Most of the times, you'll just
-need to know how to get a hold of the returned data. For that, you just need
-to access the ``result`` attributed of the returned deferred.
+need to know how to get a hold of the returned data. For that, you will need
+to access the ``result`` attribute of the returned deferred.
 
 For instance, if you wanted to pretty-print the results of the ``(status)``
 call, you'd do this:
