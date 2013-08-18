@@ -1,20 +1,13 @@
-import inspect
-from operator import itemgetter
-
 from twisted.python import log
 
-from carapace.app import registry
-from carapace.app.shell import base
 from carapace.sdk import registry
-
-from hyasynth.app import shell
-from hyasynth.app.sc import client, process
 
 from hydeyhole.sdk import command
 
+from hyasynth.app.sc import client, process
+
+
 config = registry.getConfig()
-
-
 commands = command.CommandRegistry()
 
 

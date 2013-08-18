@@ -1,4 +1,5 @@
 import os
+import re
 
 from twisted.application import internet
 from twisted.internet import defer, reactor
@@ -56,10 +57,6 @@ class SCProcessProtocol(ProcessProtocol):
         data = {"status": "process exited"}
         self.deferred.result = data
         self.deferred.callback(str(data))
-
-    def outReceived(self, data):
-        log.msg("outReceived! with %d bytes!" % len(data))
-        self.data = self.data + data
 
     def errReceived(self, data):
         log.msg("errReceived! with %d bytes!" % len(data))

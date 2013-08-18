@@ -1,12 +1,11 @@
 import sys
 
 from twisted.application import service, internet
-from twisted.internet import protocol
 from twisted.python import usage
 
-from carapace.sdk import const as sshConst, interfaces, registry, scripts
+from carapace.sdk import const as sshConst, registry, scripts
 
-from hyasynth import config, const, meta
+from hyasynth import const, meta
 from hyasynth.app.sc import process
 from hyasynth.app.shell.service import getHyShellFactory
 
@@ -38,7 +37,6 @@ class Options(usage.Options):
         ]
 
     def parseOptions(self, options):
-        config = registry.getConfig()
         usage.Options.parseOptions(self, options)
         # check options
         if self.subCommand == sshConst.KEYGEN:
@@ -68,5 +66,6 @@ def makeService(options):
     services = service.IServiceCollection(application)
     makeSSHService(options, application, services)
     # XXX if run-internal server is true, run process.makeSCSynthService ...
+    # XXX fix broken internal server startup ...
     #process.boot(mode="internal", options=options, services=services)
     return services

@@ -6,8 +6,6 @@ from carapace.util import ssh as util
 
 from hyasynth.app.shell import hyshell
 
-from hyasynth import const
-
 
 def portalFactory(namespace):
     """

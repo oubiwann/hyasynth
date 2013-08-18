@@ -1,10 +1,9 @@
-from twisted.internet import defer, reactor
+from twisted.internet import reactor
 from twisted.internet.endpoints import TCP4ClientEndpoint
 from twisted.internet.error import ConnectionRefusedError
 from twisted.python import log
 
 from txosc import osc
-from txosc import dispatch
 from txosc import async
 
 from hyasynth import config

@@ -1,6 +1,5 @@
 from twisted.python import log
 
-from txosc import osc
 from txosc import dispatch
 
 from hyasynth import exceptions
