@@ -4,7 +4,11 @@ Hyasynth
 
 .. image:: resources/logos/hyasynth-logo-192.png
 
-.. contents:: Table of Contents
+Table of Contents
+=================
+
+.. contents::
+
 
 Quick Start
 ===========
@@ -14,8 +18,8 @@ Dependencies
 ------------
 
 Hyasynth requires `SuperCollider`_ to be installed (and for now, running). You
-can download the appropriate binary for your system at
-the `SuperCollider downloads page`_.
+can download the appropriate binary for your system at the
+`SuperCollider downloads page`_ .
 
 The rest of the dependencies will be automatically installed by the ``make``
 targets. The ``make`` target that installs the deps can, of course, be called
@@ -135,7 +139,7 @@ running servers, etc. Hyasynth provides a Twisted plugin that runs all the
 necessary services. If you'd like to interact with this plugin directly, you
 can do so on the command line:
 
-.. code:: shell
+.. code:: bash
 
   $ . .venv/bin/activate
   (.venv) $ twistd hyasynth --help
@@ -152,6 +156,14 @@ can do so on the command line:
 As Hyasynth gets more features, we will update the Twisted plugin to offer more
 command-line configuration options, and you will see those when you run the
 plugin with the ``--help`` flag.
+
+
+Architecture
+============
+
+The current architecture of Hyasynth is captured in this image:
+
+.. image:: resources/architecture.png
 
 
 .. Links
