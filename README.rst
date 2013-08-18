@@ -4,6 +4,7 @@ Hyasynth
 
 .. image:: resources/logos/hyasynth-logo-192.png
 
+.. contents:: Table of Contents
 
 Quick Start
 ===========
@@ -13,8 +14,8 @@ Dependencies
 ------------
 
 Hyasynth requires `SuperCollider`_ to be installed (and for now, running). You
-can download the appropriate binary for your system at the
-`SuperCollider downloads page`_.
+can download the appropriate binary for your system at
+the `SuperCollider downloads page`_.
 
 The rest of the dependencies will be automatically installed by the ``make``
 targets. The ``make`` target that installs the deps can, of course, be called
@@ -23,6 +24,19 @@ directly:
 .. code:: bash
 
     $ make deps
+
+
+Installation
+------------
+
+Installing Hyasynth is as simple as a git clone:
+
+.. code:: bash
+
+  $ git clone https://github.com/oubiwann/hyasynth.git
+  $ cd hyasynth
+
+The rest of this document assumes that you are in the ``hyasynth`` directory.
 
 
 Running Hyasynth
@@ -136,7 +150,7 @@ can do so on the command line:
       stop        Stop the server
 
 As Hyasynth gets more features, we will update the Twisted plugin to offer more
-command-line configuration options, and you will see those when you run the 
+command-line configuration options, and you will see those when you run the
 plugin with the ``--help`` flag.
 
 
