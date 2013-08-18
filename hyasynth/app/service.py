@@ -26,15 +26,13 @@ class Options(usage.Options):
     """
     optParameters = [
         [const.sc.portLongOption, const.sc.portShortOption, const.sc.port,
-         ("The SuperCollider port number.")]
-        ]
+         ("The SuperCollider port number.")]]
 
     subCommands = [
         [sshConst.KEYGEN, None, SubCommandOptions,
          "Generate ssh keys for the server"],
         [sshConst.SHELL, None, SubCommandOptions, "Login to the server"],
-        [sshConst.STOP, None, SubCommandOptions, "Stop the server"],
-        ]
+        [sshConst.STOP, None, SubCommandOptions, "Stop the server"]]
 
     def parseOptions(self, options):
         usage.Options.parseOptions(self, options)
