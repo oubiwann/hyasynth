@@ -47,9 +47,17 @@ To get Hyasynth up and running quickly, simply do this:
 
 .. code:: bash
 
-  $ make start
+  $ make shell
 
-You will be greeted with a banner like the following:
+This will create a virtualenv for you, compile things, install dependencies,
+etc. If, in the future, you'd like to not check for deps, you can just do this:
+
+.. code:: bash
+
+  $ make shell-nodeps
+
+After the setup steps complete, you will be logged into the Hyasynth shell and
+greeted with a banner like the following:
 
 .. code:: text
 
