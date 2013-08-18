@@ -15,8 +15,8 @@ Dependencies
 ------------
 
 Hyasynth requires `SuperCollider`_ to be installed (and for now, running). You
-can download the appropriate binary for your system at the
-`SuperCollider downloads page`_ .
+can download the appropriate binary for your system at the SuperCollider
+`downloads page`_.
 
 The rest of the dependencies will be automatically installed by the ``make``
 targets. The ``make`` target that installs the deps can, of course, be called
@@ -75,7 +75,6 @@ greeted with a banner like the following:
   :   https://github.com/hylang/hy
   : Information on Hyasynth is available here:
   :   http://github.com/oubiwann/hyasynth
-  :
   :
   : Type '(ls)' or '(dir)' to see the objects in the current namespace.
   : Use (help ...) to get API docs for available objects.
@@ -208,7 +207,7 @@ The current architecture of Hyasynth is captured in this image:
 .. Links
 .. -----
 .. _SuperCollider: http://supercollider.sourceforge.net/
-.. _SuperColler downloads page: http://supercollider.sourceforge.net/downloads/
+.. _downloads page: http://supercollider.sourceforge.net/downloads/
 .. _Twisted: http://twistedmatrix.com/
 .. _docs on deferreds: http://twistedmatrix.com/documents/current/core/howto/defer.html
 .. _HydeyHole: https://github.com/oubiwann/hydeyhole
