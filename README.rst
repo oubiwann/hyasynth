@@ -4,10 +4,7 @@ Hyasynth
 
 .. image:: resources/logos/hyasynth-logo-192.png
 
-Table of Contents
-=================
-
-.. contents::  
+.. contents:: **Table of Contents**
 
 
 Quick Start
@@ -156,6 +153,33 @@ can do so on the command line:
 As Hyasynth gets more features, we will update the Twisted plugin to offer more
 command-line configuration options, and you will see those when you run the
 plugin with the ``--help`` flag.
+
+
+API Layout
+==========
+
+The current API calls that are implemented:
+
+.. code:: text
+
+  Hy Shell
+
+   * app
+   * banner
+   * clear
+   * dir
+   * help
+   * ls
+   * quit
+
+  SuperCollider
+
+   * boot-internal-server
+   * connect-external-server
+   * connect-internal-server
+   * kill-server
+   * send
+   * status / server-status
 
 
 Architecture
