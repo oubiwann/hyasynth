@@ -1,1 +1,7 @@
-hy==0.9.10
+zope.interface
+Twisted
+carapace
+hy
+https://github.com/oubiwann/txosc/archive/dev.zip
+https://github.com/oubiwann/carapace/archive/master.zip
+https://github.com/oubiwann/hydeyhole/archive/master.zip

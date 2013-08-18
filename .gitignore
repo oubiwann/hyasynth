@@ -1,1 +1,5 @@
+*.pyc
 .venv
+twistd.pid
+dropin.cache
+_trial*
