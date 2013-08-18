@@ -67,7 +67,8 @@ ssh.banner_welcome = """
 : learn more about here:
 :   https://github.com/hylang/hy
 : Information on Hyasynth is available here:
-:   http://github.com/oubiwann/hyasynth"""
+:   http://github.com/oubiwann/hyasynth
+"""
 
 
 class HyasynthConfigurator(HydeyHoleConfigurator):
